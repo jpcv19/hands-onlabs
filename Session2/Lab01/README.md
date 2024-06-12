@@ -185,7 +185,7 @@ BookService --> BookRepository
 
 ## Infraestructura y ambiente
 
-El ejercicio, requiere de una instancia de base de datos PostgreSQL y de una instancia de PGAdmin.  Para completar estas tareas previas, clone el repositorio **hands-onlabs-infra** - <https://crsjce010171vm.daviviendacr.com/TI_SourceCode/Training/_git/hands-onlabs-infra> y complete las instrucciones del archivo README.md, que acompaña al repositorio.  Regrese a este artículo cuando concluya.
+El ejercicio, requiere de una instancia de base de datos PostgreSQL y de una instancia de PGAdmin.  Para completar estas tareas previas, clone el repositorio **hands-onlabs-infra** - <https://github.com/jpcv19/hands-onlabs-infra.git> y complete las instrucciones del archivo README.md, que acompaña al repositorio.  Regrese a este artículo cuando concluya.
 
 ### 1. Estructura de directorios
 
