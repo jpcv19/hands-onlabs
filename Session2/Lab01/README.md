@@ -15,169 +15,19 @@ A continuación encontrar los diagramas que explican la aplicación.
 
 ### Diagrama de Arquitectura
 
-```plantuml
-@startuml
-!define RECTANGLE class
-package LibraryManagement {
-    package Core {
-        RECTANGLE Book {
-            + Guid Id
-            + string Title
-            + string Author
-            + string ISBN
-        }
-
-        RECTANGLE IBookRepository {
-            + Task<IEnumerable<Book>> GetAllAsync()
-            + Task<Book> GetByIdAsync(Guid id)
-            + Task AddAsync(Book book)
-            + Task UpdateAsync(Book book)
-            + Task DeleteAsync(Guid id)
-        }
-
-        RECTANGLE BookService {
-            + Task<IEnumerable<Book>> GetBooksAsync()
-            + Task<Book> GetBookByIdAsync(Guid id)
-            + Task AddBookAsync(Book book)
-            + Task UpdateBookAsync(Book book)
-            + Task DeleteBookAsync(Guid id)
-        }
-    }
-
-    package Infrastructure {
-        RECTANGLE BookRepository {
-            + Task<IEnumerable<Book>> GetAllAsync()
-            + Task<Book> GetByIdAsync(Guid id)
-            + Task AddAsync(Book book)
-            + Task UpdateAsync(Book book)
-            + Task DeleteAsync(Guid id)
-        }
-    }
-
-    package API {
-        RECTANGLE BookController {
-            + Task<IActionResult> GetBooks()
-            + Task<IActionResult> GetBook(Guid id)
-            + Task<IActionResult> CreateBook(Book book)
-            + Task<IActionResult> UpdateBook(Book book)
-            + Task<IActionResult> DeleteBook(Guid id)
-        }
-    }
-}
-
-Core.Book -- Infrastructure.BookRepository : implements
-Core.IBookRepository <|-- Infrastructure.BookRepository
-Core.BookService --> Core.IBookRepository : uses
-API.BookController --> Core.BookService : uses
-@enduml
-```
+![Diagrama de Arquitectura](img/Architecture.png)
 
 ### Diagrama de Componentes
 
-```plantuml
-@startuml
-package "LibraryManagementSolution" {
-  [Backend] --> [PostgreSQL]
-}
-
-package "Backend" {
-  [LibraryManagement.Backend] --> [Controllers]
-  [LibraryManagement.Backend] --> [Services]
-  [LibraryManagement.Backend] --> [Repositories]
-  [LibraryManagement.Backend] --> [Entities]
-}
-
-package "Controllers" {
-  [BooksController]
-}
-
-package "Services" {
-  [BookService]
-}
-
-package "Repositories" {
-  [IBookRepository]
-  [BookRepository]
-}
-
-package "Entities" {
-  [Book]
-}
-
-[BooksController] --> [BookService]
-[BookService] --> [IBookRepository]
-[IBookRepository] <|-- [BookRepository]
-[BookRepository] --> [LibraryContext]
-@enduml
-
-```
+![Diagrama de Componentes](img/Components.png)
 
 ### Diagrama de Despliegue
 
-```plantuml
-@startuml
-node "User" {
-  [Postman]
-}
-
-node "Docker Host" {
-
-  node "Container: Backend" {
-    [ASP.NET Core API]
-  }
-
-  node "Container: PostgreSQL" {
-    [PostgreSQL Database]
-  }
-}
-
-[Postman] --> [ASP.NET Core API]: HTTPS
-[ASP.NET Core API] --> [PostgreSQL Database]: TCP/IP
-@enduml
-```
+![Diagrama de Despliegue](img/Deploy.png)
 
 ### Diagrama de Clases
 
-```plantuml
-@startuml
-class Book {
-    +Guid Id
-    +string Title
-    +string Author
-    +int Year
-}
-
-interface IBookRepository {
-    +IEnumerable<Book> GetAll()
-    +Book GetById(Guid id)
-    +void Add(Book book)
-    +void Update(Book book)
-    +void Delete(Guid id)
-}
-
-class BookRepository {
-    +IEnumerable<Book> GetAll()
-    +Book GetById(Guid id)
-    +void Add(Book book)
-    +void Update(Book book)
-    +void Delete(Guid id)
-}
-
-IBookRepository <|-- BookRepository
-
-class BookService {
-    -IBookRepository _bookRepository
-    +IEnumerable<Book> GetAllBooks()
-    +Book GetBookById(Guid id)
-    +void AddBook(Book book)
-    +void UpdateBook(Book book)
-    +void DeleteBook(Guid id)
-}
-
-BookService --> BookRepository
-
-@enduml
-```
+![Diagrama de Clases](img/Class.png)
 
 **Importante:** Si tiene problemas para ver los diagramas y está utilizando VS Code, le recomendamos instalar la extensión oficial de PlantUML. Luego, copie y pegue el código en un archivo con la extensión `.puml` para poder visualizarlo correctamente.
 
