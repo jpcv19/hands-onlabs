@@ -591,6 +591,6 @@ Realice pruebas con su servicio, cree libros, recupere todos los registros, actu
 
 **IMPORTANTE**
 
-Llegado a este punto avise al instructor, vamos a tomar un pausa para analizar todo lo que se construidos y los principios SOLID que hemos aplicado a la construcción del servicios.
+Llegado a este punto avise al instructor, vamos a tomar un pausa para analizar los principios SOLID que hemos aplicado a la construcción del servicios.
 
 Le invitamos a seguir explorando el uso de buenas prácticas de desarrollo.  Y le recomendamos explorar la construcción de un Frontend en Angular, que le permita consumir el servicio y mostrar los datos en pantalla.
