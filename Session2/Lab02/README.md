@@ -239,7 +239,7 @@ Localice el archivo `Program.cs` y apoyándose en el editor de código agregue l
 
     // Agregue estas lineas debajo de esta sección
     // Add services to the container.
-    //builder.Services.Configure<WeatherSettings>(builder.Configuration.GetSection("WeatherSettings"));
+    builder.Services.Configure<WeatherSettings>(builder.Configuration.GetSection("WeatherSettings"));
     builder.Services.AddSingleton<IWeatherService, WeatherService>();
     builder.Services.AddSingleton<IRepository<WeatherForecast>, InMemoryRepository>();
     ```
