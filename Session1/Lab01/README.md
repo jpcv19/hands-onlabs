@@ -1,11 +1,11 @@
 ---
-Order: #
+Order: 1
 Area: languages
-TOCTitle: Markdown
-ContentID: GUID
-PageTitle: 
-DateApproved: MM/DD/YYYY
-MetaDescription: 
+TOCTitle: Automatización de Versiones
+ContentID: 80d8ec31-e4a6-4b51-a2a7-a8604aa91a60
+PageTitle: Session 1 - Lab 01
+DateApproved: 16/05/2024
+MetaDescription: Automatización de Versiones (SemVer / Conventional Commits / Git / GitVersion)
 ---
 
 # Automatización de Versiones (SemVer / Conventional Commits / Git / GitVersion)
